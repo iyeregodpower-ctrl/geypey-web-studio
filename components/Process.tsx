@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const steps = [
   {
@@ -25,30 +25,53 @@ const steps = [
   }
 ];
 
+// 1. The Single Tracker (One Observer instead of 5)
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    }
+  }
+};
+
+// 2. The Children (These no longer track the scroll, they just listen to the parent)
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { type: "spring", stiffness: 50 } 
+  }
+};
+
 export default function Process() {
   return (
     <section className="py-32 bg-black text-white px-6">
-      <div className="max-w-4xl mx-auto">
+      {/* We apply the single whileInView to this parent container */}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        className="max-w-4xl mx-auto"
+      >
         
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
+        {/* Header acts as the first staggered item */}
+        <motion.div variants={itemVariants} className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">The Engineering Pipeline.</h2>
           <p className="text-zinc-400 text-lg">A strict, transparent workflow from concept to deployment.</p>
         </motion.div>
 
         <div className="space-y-12 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-zinc-800 before:to-transparent">
           
-          {steps.map((step, index) => (
+          {steps.map((step) => (
+            // The steps now use variants instead of individual whileInView tags
             <motion.div 
               key={step.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: index * 0.1, type: "spring", stiffness: 50 }}
+              variants={itemVariants}
               className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
             >
               {/* Glowing Node */}
@@ -65,7 +88,7 @@ export default function Process() {
           ))}
 
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

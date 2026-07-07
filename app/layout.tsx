@@ -25,11 +25,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        
+        {/* Task 3: Preconnect & DNS Prefetch for the Spline 3D Viewer */}
+        <link rel="preconnect" href="https://prod.spline.design" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://prod.spline.design" />
       </head>
-      <body className="bg-black text-zinc-300 antialiased selection:bg-zinc-800 selection:text-white">
+      
+      <body className="bg-black text-zinc-300 antialiased pt-20 selection:bg-zinc-800 selection:text-white">
         <Navbar />
         
-        {/* Isolated main content for premium scrolling */}
         <main>
           <LenisProvider>
             {children}

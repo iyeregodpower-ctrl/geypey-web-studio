@@ -2,7 +2,17 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Spline from '@splinetool/react-spline';
+import dynamic from "next/dynamic";
+
+// 1. Defer the Spline component import to prevent main-thread blocking
+const Spline = dynamic(() => import('@splinetool/react-spline'), { 
+  ssr: false, 
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="animate-pulse text-zinc-600/50 text-sm font-medium tracking-widest uppercase">Loading Experience...</div>
+    </div>
+  )
+});
 
 export default function Hero() {
   return (

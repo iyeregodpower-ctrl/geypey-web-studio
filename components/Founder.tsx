@@ -1,14 +1,13 @@
 "use client";
-import Image from "next/image";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Founder() {
   return (
     <section className="px-6 w-full my-32">
-      {/* 1. The Stable Shell (Standard HTML, no motion) */}
       
-      {/* 2. The Animated Container */}
+      {/* The Animated Container */}
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -23,16 +22,19 @@ export default function Founder() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ type: "spring", stiffness: 60, damping: 20, delay: 0.2 }}
-          className="w-full md:w-1/3 relative group"
+          className="w-full md:w-1/3 relative group flex justify-center"
         >
           <div className="absolute inset-0 bg-white/5 rounded-2xl blur-xl group-hover:bg-white/10 transition-all duration-700" />
-          <Image
-            src ="/img/portfolio-image2.png" 
+          
+          {/* Optimized Next.js Image */}
+          <Image 
+            src="/img/portfolio-image2.png" 
             alt="Iyere" 
-            width={500} 
+            width={400} 
             height={500}
-            priority
-            className="relative z-10 rounded-2xl shadow-2xl hover:scale-[1.02] transition-all duration-700 ease-in-out border border-zinc-800" 
+            sizes="(max-width: 768px) 100vw, 33vw"
+            quality={85}
+            className="relative z-10 rounded-2xl shadow-2xl hover:scale-[1.02] transition-all duration-700 ease-in-out border border-zinc-800 object-cover" 
           />
         </motion.div>
         
