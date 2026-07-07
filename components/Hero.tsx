@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
       
       {/* Interactive 3D Spline Background */}
-      <div className="absolute inset-0 z-0 opacity-60 pointer-events-auto flex items-center justify-center">
+      <div className="absolute inset-0 z-0 opacity-60 pointer-events-none flex items-center justify-center">
         <Spline scene="https://prod.spline.design/BHzJvrFOzwtRLies/scene.splinecode" />
       </div>
 

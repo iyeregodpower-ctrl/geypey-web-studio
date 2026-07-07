@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -34,9 +34,12 @@ export default function Navbar() {
       {/* 1. Logo Section (Stays visible on all screens, z-index pushed up to stay above mobile menu) */}
       <Link href="/" className="flex items-center gap-3 group relative z-50" onClick={() => setIsOpen(false)}>
         <div className="relative h-12 w-12 sm:h-16 sm:w-16 transition-transform duration-300 group-hover:scale-105">
-          <img 
+          <Image
             src="/img/logo2.png" 
-            alt="Geypey Web Studio Logo" 
+            alt="Geypey Web Studio Logo"
+            width={64}   
+            height={64} 
+            priority
             className="w-full h-full object-contain"
           />
         </div>

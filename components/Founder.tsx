@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { motion } from "framer-motion";
 
@@ -25,9 +26,12 @@ export default function Founder() {
           className="w-full md:w-1/3 relative group"
         >
           <div className="absolute inset-0 bg-white/5 rounded-2xl blur-xl group-hover:bg-white/10 transition-all duration-700" />
-          <img 
-            src="/img/portfolio-image2.png" 
+          <Image
+            src ="/img/portfolio-image2.png" 
             alt="Iyere" 
+            width={500} 
+            height={500}
+            priority
             className="relative z-10 rounded-2xl shadow-2xl hover:scale-[1.02] transition-all duration-700 ease-in-out border border-zinc-800" 
           />
         </motion.div>

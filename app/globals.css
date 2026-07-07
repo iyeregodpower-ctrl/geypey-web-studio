@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Fix for mobile horizontal scroll jitter */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  padding-top: 0;
+}
+
+/* Ensure the main container is always full height */
+main {
+  min-height: 100vh;
+  position: relative;
+}
