@@ -12,7 +12,7 @@ export default function Founder() {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ type: "spring", stiffness: 50, damping: 20 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12 bg-zinc-950 rounded-3xl p-8 md:p-16 border border-zinc-900 overflow-hidden"
       >
         
@@ -21,7 +21,7 @@ export default function Founder() {
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ type: "spring", stiffness: 60, damping: 20, delay: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="w-full md:w-1/3 relative group flex justify-center"
         >
           <div className="absolute inset-0 bg-white/5 rounded-2xl blur-xl group-hover:bg-white/10 transition-all duration-700" />
@@ -43,7 +43,7 @@ export default function Founder() {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ type: "spring", stiffness: 60, damping: 20, delay: 0.4 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
           className="w-full md:w-2/3"
         >
           <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">Crafting Bright Experiences.</h2>

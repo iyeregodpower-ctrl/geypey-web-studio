@@ -23,12 +23,12 @@ export default function Hero() {
         <Spline scene="https://prod.spline.design/BHzJvrFOzwtRLies/scene.splinecode" />
       </div>
 
-      {/* The glowing orb */}
+      {/* The glowing orb - HIDDEN ON MOBILE for GPU performance */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2, ease: "easeOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-zinc-600/20 rounded-full blur-[100px] pointer-events-none z-0"
+        className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-zinc-600/20 rounded-full blur-[100px] pointer-events-none z-0"
       />
 
       <div className="z-10 text-center px-4 pointer-events-none">

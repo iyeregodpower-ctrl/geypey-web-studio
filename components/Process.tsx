@@ -43,7 +43,7 @@ const itemVariants: Variants = {
   show: { 
     opacity: 1, 
     y: 0, 
-    transition: { type: "spring", stiffness: 50 } 
+    transition: { duration: 0.6, ease: "easeOut" } 
   }
 };
 

@@ -12,17 +12,20 @@ const faqData = [
 
 export default function AIChatFAQ() {
   const ref = useRef(null);
-  // Only allow the logic to run if the section is at least 30% visible
   const isInView = useInView(ref, { once: false, amount: 0.3 });
   
+  // Chat State (Desktop)
   const [currentIndex, setCurrentIndex] = useState(0);
   const [chatState, setChatState] = useState<"typing" | "thinking" | "replied">("typing");
   const [typedText, setTypedText] = useState("");
+  
+  // Accordion State (Mobile)
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const currentQ = useMemo(() => faqData[currentIndex].question, [currentIndex]);
 
+  // Desktop Chat Logic
   useEffect(() => {
-    // If user is scrolled away, stop all internal timers
     if (!isInView) return;
 
     let timeout: NodeJS.Timeout;
@@ -46,15 +49,16 @@ export default function AIChatFAQ() {
   }, [chatState, typedText, currentIndex, currentQ, isInView]);
 
   return (
-    <section ref={ref} className="py-20 pt-32 bg-black flex flex-col items-center px-4 overflow-hidden relative">
+    <section ref={ref} className="py-20 pt-32 bg-black flex flex-col items-center px-6 overflow-hidden relative">
       
+      {/* Heading */}
       <div className="text-center mb-12 relative z-10">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">Frequently Asked.</h2>
-        <p className="text-zinc-500">Everything you need to know about our engineering process.</p>
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Frequently Asked.</h2>
+        <p className="text-zinc-400">Everything you need to know about our engineering process.</p>
       </div>
 
-      <div className="w-full max-w-xl bg-zinc-950/50 border border-zinc-900 rounded-3xl p-5 h-[380px] flex flex-col relative shadow-2xl z-10" style={{ willChange: 'transform' }}>
-        
+      {/* --- DESKTOP VIEW: AI Chat (Hidden on Mobile) --- */}
+      <div className="hidden md:flex w-full max-w-xl bg-zinc-950/50 border border-zinc-900 rounded-3xl p-5 h-[380px] flex-col relative shadow-2xl z-10">
         <div className="flex-1 overflow-hidden flex flex-col justify-end space-y-4 pb-4">
           <AnimatePresence mode="wait">
             {chatState === "thinking" && (
@@ -83,7 +87,48 @@ export default function AIChatFAQ() {
           </div>
         </div>
       </div>
+
+      {/* --- MOBILE VIEW: Sleek Accordion (Hidden on Desktop) --- */}
+      <div className="flex md:hidden flex-col w-full max-w-md space-y-3 z-10 relative">
+        {faqData.map((item, index) => {
+          const isOpen = openIndex === index;
+          return (
+            <div 
+              key={index} 
+              className={`border transition-colors duration-300 rounded-2xl overflow-hidden ${isOpen ? 'bg-zinc-900/80 border-zinc-700' : 'bg-zinc-950/50 border-zinc-900'}`}
+            >
+              <button
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+                className="w-full text-left px-5 py-4 flex justify-between items-center focus:outline-none"
+              >
+                <span className="text-zinc-200 text-sm font-medium pr-4">{item.question}</span>
+                <span className={`text-zinc-500 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 1V13M1 7H13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </span>
+              </button>
+              
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <div className="px-5 pb-5 pt-1 text-sm text-zinc-400 leading-relaxed">
+                      {item.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
+      </div>
       
+      {/* Background Graphic */}
       <div 
         className="absolute inset-0 z-0 opacity-30 pointer-events-none"
         style={{ 
