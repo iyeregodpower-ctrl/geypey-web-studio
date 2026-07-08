@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { LenisProvider } from "../components/LenisProvider";
 import { Metadata } from "next";
-import Script from "next/script"; // 1. Import the Next.js Script component
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Geypey Web Studio | Growth Engineering Firm",
@@ -42,20 +42,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-YOUR_MEASUREMENT_ID', {
+            gtag('config', 'G-660HDDQSBF', {
               page_path: window.location.pathname,
             });
           `}
         </Script>
 
         {/* --- MICROSOFT CLARITY --- */}
-        <Script id="xitamor5qe" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "YOUR_CLARITY_PROJECT_ID");
+            })(window, document, "clarity", "script", "xitamor5qe");
           `}
         </Script>
 

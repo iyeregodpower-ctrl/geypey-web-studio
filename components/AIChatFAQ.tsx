@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useMemo, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 const faqData = [
   { question: "How long does a premium web development build take?", answer: "Our standard engineering timeline is 4 to 6 weeks. This ensures ample time for bespoke architecture, UI/UX design, and rigorous performance testing." },
@@ -11,6 +11,10 @@ const faqData = [
 ];
 
 export default function AIChatFAQ() {
+  const ref = useRef(null);
+  // Only allow the logic to run if the section is at least 30% visible
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [chatState, setChatState] = useState<"typing" | "thinking" | "replied">("typing");
   const [typedText, setTypedText] = useState("");
@@ -18,6 +22,9 @@ export default function AIChatFAQ() {
   const currentQ = useMemo(() => faqData[currentIndex].question, [currentIndex]);
 
   useEffect(() => {
+    // If user is scrolled away, stop all internal timers
+    if (!isInView) return;
+
     let timeout: NodeJS.Timeout;
     
     if (chatState === "typing") {
@@ -36,13 +43,11 @@ export default function AIChatFAQ() {
       }, 5000);
     }
     return () => clearTimeout(timeout);
-  }, [chatState, typedText, currentIndex, currentQ]);
+  }, [chatState, typedText, currentIndex, currentQ, isInView]);
 
   return (
-    // Added pt-32 to push content below the fixed navbar
-    <section className="py-20 pt-32 bg-black flex flex-col items-center px-4 overflow-hidden relative">
+    <section ref={ref} className="py-20 pt-32 bg-black flex flex-col items-center px-4 overflow-hidden relative">
       
-      {/* Restored Heading Section */}
       <div className="text-center mb-12 relative z-10">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">Frequently Asked.</h2>
         <p className="text-zinc-500">Everything you need to know about our engineering process.</p>
@@ -79,7 +84,6 @@ export default function AIChatFAQ() {
         </div>
       </div>
       
-      {/* Background decoration remains behind the content */}
       <div 
         className="absolute inset-0 z-0 opacity-30 pointer-events-none"
         style={{ 
