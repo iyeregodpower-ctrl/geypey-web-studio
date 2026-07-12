@@ -18,10 +18,13 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
       
-      {/* Interactive 3D Spline Background */}
-      <div className="absolute inset-0 z-0 opacity-60 pointer-events-none flex items-center justify-center">
+      {/* DESKTOP ONLY: Interactive 3D Spline Background */}
+      <div className="hidden md:flex absolute inset-0 z-0 opacity-60 pointer-events-none items-center justify-center">
         <Spline scene="https://prod.spline.design/BHzJvrFOzwtRLies/scene.splinecode" />
       </div>
+
+      {/* MOBILE ONLY: High-Performance CSS Gradient Fallback */}
+      <div className="flex md:hidden absolute inset-0 z-0 opacity-30 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-500 via-black to-black pointer-events-none" />
 
       {/* The glowing orb - HIDDEN ON MOBILE for GPU performance */}
       <motion.div 
@@ -31,7 +34,7 @@ export default function Hero() {
         className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-zinc-600/20 rounded-full blur-[100px] pointer-events-none z-0"
       />
 
-      <div className="z-10 text-center px-4 pointer-events-none">
+      <div className="z-10 text-center px-4 pointer-events-none mt-12 md:mt-0">
         
         {/* Agency Badge */}
         <motion.div
@@ -80,6 +83,22 @@ export default function Hero() {
             Request Proposal
           </Link>
         </motion.div>
+
+        {/* MOBILE ONLY: Desktop Experience Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="mt-16 flex md:hidden items-center justify-center gap-2 text-zinc-500 text-xs font-medium uppercase tracking-widest opacity-80"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>View on desktop for 3D experience</span>
+        </motion.div>
+
       </div>
     </section>
   );

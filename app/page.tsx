@@ -8,6 +8,8 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import About from "../components/About";
 import Founder from "../components/Founder";
+import Success from "../components/Success";
+import Testimonials from "./client-success/Testimonials";
 
 // 1. Dynamic imports for heavy/interactive components
 // This prevents them from blocking the initial page rendering
@@ -26,13 +28,17 @@ export default function Home() {
     <main className="bg-black min-h-screen selection:bg-zinc-800 selection:text-white">
       {/* Above-the-fold components load immediately */}
       <Hero />
-      <Services />
-      <About />
       <Founder />
-      
-      {/* Lazy-loaded components load only when needed or just after initial paint */}
-      <AIChatFAQ />
+      <Services />
       <Process />
+      <Success />
+      <div id= "testimonials">
+        <Testimonials />
+      </div>
+      
+      <AIChatFAQ />
+      <About />
+    
       
       {/* 2. The Final Call to Action */}
       <section className="py-32 text-center px-6">

@@ -23,15 +23,20 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Work", href: "/portfolio" },
-    { name: "Contact", href: "/contact" },
-    { name: "Client Portal", href: "/client-portal" },
+    
+    { name: "Client success", href: "/#testimonials" },
     { name: "Case Studies", href: "/case-studies" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
     <nav className="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/50 backdrop-blur-md border-b border-zinc-900">
       
       {/* 1. Logo Section (Stays visible on all screens, z-index pushed up to stay above mobile menu) */}
+
+      <Link href="/#impact" className="text-zinc-400 hover:text-white transition-colors">
+        
+      </Link>
       <Link href="/" className="flex items-center gap-3 group relative z-50" onClick={() => setIsOpen(false)}>
         <div className="relative h-12 w-12 sm:h-16 sm:w-16 transition-transform duration-300 group-hover:scale-105">
           <Image

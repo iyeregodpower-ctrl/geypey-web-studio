@@ -6,7 +6,7 @@ export default function TrustBar() {
         {/* Placeholder logos for your certifications/partnerships */}
         <span>F-Bridge Africa</span>
         <span>FlyRank AI Engineering</span>
-        <span>CodeAlpha</span>
+      
       </div>
     </div>
   );
