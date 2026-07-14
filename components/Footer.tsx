@@ -26,7 +26,7 @@ export default function Footer() {
         {/* Social & Contact Links */}
         <div className="flex flex-wrap justify-center gap-8 text-sm font-medium">
           <a 
-            href="https://linkedin.com/in/iyere-godspower" 
+            href="https://www.linkedin.com/in/iyere-godspower-76b092227" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="text-zinc-400 hover:text-white transition-colors"
