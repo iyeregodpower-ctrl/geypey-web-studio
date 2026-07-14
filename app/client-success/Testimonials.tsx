@@ -6,7 +6,7 @@ const testimonials = [
   {
     id: 1,
     quote: "Geypey Web Studio did not just build a website; they engineered a digital asset that completely elevated our brand presence and performance.",
-    name: "Client Name",
+    name: "CEO",
     title: "Founder, Real Estate Firm",
   },
   {
