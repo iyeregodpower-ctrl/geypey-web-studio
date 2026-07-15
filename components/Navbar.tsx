@@ -15,8 +15,12 @@ export default function Navbar() {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   // Grouping links makes the component much cleaner and easier to map over
@@ -34,9 +38,6 @@ export default function Navbar() {
       
       {/* 1. Logo Section (Stays visible on all screens, z-index pushed up to stay above mobile menu) */}
 
-      <Link href="/#impact" className="text-zinc-400 hover:text-white transition-colors">
-        
-      </Link>
       <Link href="/" className="flex items-center gap-3 group relative z-50" onClick={() => setIsOpen(false)}>
         <div className="relative h-12 w-12 sm:h-16 sm:w-16 transition-transform duration-300 group-hover:scale-105">
           <Image

@@ -12,7 +12,7 @@ const faqData = [
 
 export default function AIChatFAQ() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
   
   // Chat State (Desktop)
   const [currentIndex, setCurrentIndex] = useState(0);
