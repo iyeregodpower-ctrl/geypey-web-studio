@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -91,7 +92,7 @@ const projects = [
 
 export default function PortfolioPage() {
   return (
-    <main className="min-h-screen bg-black text-zinc-300 relative overflow-hidden">
+    <div className="min-h-screen bg-black text-zinc-300 relative overflow-hidden">
       
       {/* Consistent Premium Low Poly Background */}
       <div 
@@ -130,15 +131,19 @@ export default function PortfolioPage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: Math.min(index * 0.05, 0.25) }}
               className="group relative border border-zinc-900 bg-zinc-950/80 backdrop-blur-sm rounded-2xl p-6 hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="w-full h-48 mb-6 overflow-hidden rounded-xl border border-zinc-800/50 relative">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={80}
+                    loading={index < 3 ? "eager" : "lazy"}
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider block mb-2">{project.category}</span>
@@ -164,6 +169,6 @@ export default function PortfolioPage() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }
