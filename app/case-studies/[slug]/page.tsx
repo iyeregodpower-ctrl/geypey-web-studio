@@ -1,10 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { use } from "react"; // 1. Import 'use' from react
+import { use } from "react";
 
 export default function CaseStudyTemplate({ params }: { params: Promise<{ slug: string }> }) {
-  // 2. Unwrap the params Promise
   const resolvedParams = use(params);
   const slug = resolvedParams.slug;
 
@@ -19,7 +15,7 @@ export default function CaseStudyTemplate({ params }: { params: Promise<{ slug: 
       ? "Optimizing high-resolution asset delivery for a premium visual experience." 
       : "Managing complex data structures while ensuring an immersive user experience.",
     solution: isAuraLuxe 
-      ? "Implemented Next.js server-side rendering and Framer Motion for a sub-1s load time." 
+      ? "Implemented Next.js server-side rendering and CSS animations for a sub-1s load time." 
       : "Built using a modular component-based architecture for scalable, historical exploration.",
     outcome: isAuraLuxe 
       ? "40% increase in mobile engagement." 
@@ -28,11 +24,7 @@ export default function CaseStudyTemplate({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="min-h-screen bg-black text-white p-12 md:p-24">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-3xl mx-auto"
-      >
+      <div className="max-w-3xl mx-auto animate-fade-in-up">
         <h1 className="text-4xl font-bold mb-8">{content.title}</h1>
         
         <div className="space-y-8 border-l border-zinc-800 pl-8">
@@ -56,7 +48,7 @@ export default function CaseStudyTemplate({ params }: { params: Promise<{ slug: 
             <p className="text-lg font-semibold text-zinc-300">{content.outcome}</p>
           </section>
         </div>
-      </motion.div>
+      </div>
     </main>
   );
 }

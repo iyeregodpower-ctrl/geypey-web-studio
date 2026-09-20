@@ -2,15 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fix for mobile horizontal scroll jitter */
 html, body {
   overflow-x: hidden;
   width: 100%;
   padding-top: 0;
 }
 
-/* Ensure the main container is always full height */
 main {
   min-height: 100vh;
   position: relative;
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
+}
+
+.hero-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, rgba(88, 40, 160, 0.32) 0%, transparent 55%),
+    #000;
+}
+
+.hero-orb {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: min(78vw, 640px);
+  height: min(78vw, 640px);
+  translate: -50% -50%;
+  border-radius: 9999px;
+  background: conic-gradient(from 180deg, #7c5cff, #4de2ff, #f0c27a, #ff6b9d, #7c5cff);
+  opacity: 0.38;
+  filter: blur(64px);
+  will-change: transform;
+  animation: hero-spin 36s linear infinite;
+}
+
+.hero-core {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: min(42vw, 340px);
+  height: min(42vw, 340px);
+  translate: -50% -50%;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.18), transparent 42%),
+    radial-gradient(circle at 70% 70%, rgba(124, 92, 255, 0.45), rgba(0, 0, 0, 0.9) 70%);
+  box-shadow: 0 0 80px rgba(124, 92, 255, 0.25);
+  animation: hero-pulse 8s ease-in-out infinite;
+}
+
+.hero-ring {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: min(58vw, 480px);
+  height: min(34vw, 280px);
+  translate: -50% -50%;
+  border: 1px solid rgba(240, 194, 122, 0.35);
+  border-radius: 50%;
+  opacity: 0.55;
+  animation: hero-tilt 18s linear infinite;
+}
+
+.hero-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.22), transparent 35%, #000 100%);
+}
+
+@keyframes hero-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hero-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+@keyframes hero-tilt {
+  to { transform: rotateX(62deg) rotate(360deg); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+@media (max-width: 767px) {
+  .hero-orb,
+  .hero-core,
+  .hero-ring {
+    animation: none;
+    filter: blur(48px);
+  }
+
+  .hero-orb {
+    opacity: 0.28;
+  }
+
+  .nav-glass {
+    backdrop-filter: none;
+    background: rgb(0 0 0 / 0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb,
+  .hero-core,
+  .hero-ring,
+  .animate-fade-in-up {
+    animation: none;
+  }
 }

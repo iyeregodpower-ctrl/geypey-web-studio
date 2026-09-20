@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const testimonials = [
   {
     id: 1,
@@ -25,15 +21,9 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-32 bg-zinc-950 px-6 relative overflow-hidden">
-      
-      {/* Subtle Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-zinc-800/20 blur-[120px] pointer-events-none" />
-
+    <section className="cv-auto py-32 bg-zinc-950 px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
-        
-        {/* Section Header */}
-        <div className="mb-20 md:text-center">
+        <div className="mb-20 md:text-center animate-fade-in-up">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Client Impact.
           </h2>
@@ -42,37 +32,21 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={testimonial.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-              className="bg-black border border-zinc-800 rounded-3xl p-8 hover:border-zinc-600 transition-colors duration-500 flex flex-col justify-between h-full"
+              className="bg-black border border-zinc-800 rounded-3xl p-8 flex flex-col justify-between h-full animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Quote Icon */}
-              <div className="text-zinc-700 mb-6">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
-              
               <p className="text-zinc-300 text-lg leading-relaxed mb-8">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
-              
               <div>
-                <div className="text-white font-semibold tracking-wide">
-                  {testimonial.name}
-                </div>
-                <div className="text-zinc-500 text-sm mt-1">
-                  {testimonial.title}
-                </div>
+                <div className="text-white font-semibold tracking-wide">{testimonial.name}</div>
+                <div className="text-zinc-500 text-sm mt-1">{testimonial.title}</div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
