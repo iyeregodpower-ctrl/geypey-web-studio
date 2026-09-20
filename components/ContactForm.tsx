@@ -12,7 +12,7 @@ export default function ContactForm() {
 
   return (
     <section className="py-24 px-6 bg-black">
-      <div className="max-w-2xl mx-auto border border-zinc-900 rounded-3xl p-8 md:p-12 bg-zinc-950/50 backdrop-blur-sm">
+      <div className="max-w-2xl mx-auto border border-zinc-900 rounded-3xl p-8 md:p-12 bg-zinc-950/50 backdrop-blur-sm animate-fade-in-up">
         <h2 className="text-3xl font-bold text-white mb-2">Let's Engineer Growth.</h2>
         <p className="text-zinc-400 mb-10">Have a project in mind? Reach out and let's discuss your vision.</p>
         

@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 // All 10 projects extracted from your vanilla HTML portfolio
 const projects = [
@@ -88,15 +85,13 @@ const projects = [
   }
 ];
 
-
-
 export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-black text-zinc-300 relative overflow-hidden">
       
       {/* Consistent Premium Low Poly Background */}
       <div 
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none"
+        className="absolute inset-0 z-0 opacity-20 pointer-events-none cv-auto"
         style={{ 
           backgroundImage: "url('/img/low-poly.svg')",
           backgroundSize: "cover",
@@ -107,32 +102,20 @@ export default function PortfolioPage() {
       {/* Content Container - Forced to the front */}
       <div className="relative z-10 px-6 py-24 max-w-7xl mx-auto">
         <header className="mb-16">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4"
-          >
+          <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 animate-fade-in-up">
             Selected Works
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-zinc-400 max-w-xl text-lg"
-          >
+          </h1>
+          <p className="text-zinc-400 max-w-xl text-lg animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             A comprehensive collection of responsive frontend architecture, interactive interfaces, and premium digital brand design.
-          </motion.p>
+          </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: Math.min(index * 0.05, 0.25) }}
-              className="group relative border border-zinc-900 bg-zinc-950/80 backdrop-blur-sm rounded-2xl p-6 hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between"
+            <div 
+              key={project.title}
+              className="group relative border border-zinc-900 bg-zinc-950/80 backdrop-blur-sm rounded-2xl p-6 hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between animate-fade-in-up"
+              style={{ animationDelay: `${Math.min(index * 50, 250)}ms` }}
             >
               <div>
                 <div className="w-full h-48 mb-6 overflow-hidden rounded-xl border border-zinc-800/50 relative">
@@ -160,12 +143,12 @@ export default function PortfolioPage() {
                   ))}
                 </div>
                 <div className="flex gap-4 border-t border-zinc-900/50 pt-4 text-xs font-medium uppercase tracking-wider">
-                  <Link href={project.liveLink} target="_blank" className="text-white hover:text-zinc-400 transition-colors flex items-center gap-1">
+                  <Link href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-400 transition-colors flex items-center gap-1">
                     View Live Site ↗
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
