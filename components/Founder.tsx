@@ -7,7 +7,7 @@ export default function Founder() {
         <div className="w-full md:w-1/3 relative flex justify-center">
           <Image
             src="/img/portfolio-image2.png"
-            alt="Iyere"
+            alt="Iyere Godspower founder Geypey Web Studio Lagos Nigeria"
             width={400}
             height={500}
             sizes="(max-width: 768px) 100vw, 33vw"

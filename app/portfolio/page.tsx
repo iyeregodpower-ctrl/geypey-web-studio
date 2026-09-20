@@ -10,6 +10,7 @@ const projects = [
     tags: ["HTML5", "Tailwind CSS", "JavaScript", "UI/UX Design"],
     image: "/img/auraluxe-preview.png",
     liveLink: "https://auralexu-realestate.vercel.app/",
+    alt: "Aura Luxe Estates dark mode luxury real estate showcase by Geypey Web Studio",
   },
   {
     title: "Ancient Knowledge Hub",
@@ -18,6 +19,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript"],
     image: "/img/ancient.png",
     liveLink: "https://iyeregodpower-ctrl.github.io/ancient-knowledge-hub/index.html",
+    alt: "Ancient Knowledge Hub immersive history platform by Geypey Web Studio",
   },
   {
     title: "Fisayo Digital Infrastructure",
@@ -26,6 +28,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript"],
     image: "/img/fisayo-preview.png",
     liveLink: "https://iyeregodpower-ctrl.github.io/fisayo-tech/",
+    alt: "Fisayo Digital Infrastructure personal brand portfolio by Geypey Web Studio",
   },
   {
     title: "Kamsi Business Hub",
@@ -34,6 +37,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript"],
     image: "/img/kamsi-preview.png",
     liveLink: "https://iyeregodpower-ctrl.github.io/kamsi-web/",
+    alt: "Kamsi Business Hub high-converting web platform by Geypey Web Studio",
   },
   {
     title: "Premium E-Commerce Platform",
@@ -42,6 +46,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript"],
     image: "/img/swift.png",
     liveLink: "https://iyeregodpower-ctrl.github.io/swift-shop/",
+    alt: "Premium E-Commerce Platform responsive online store by Geypey Web Studio",
   },
   {
     title: "E-Commerce Admin Dashboard",
@@ -50,6 +55,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript"],
     image: "/img/dashboard-preview.png",
     liveLink: "https://iyeregodpower-ctrl.github.io/geypey-admin/",
+    alt: "E-Commerce Admin Dashboard backend management interface by Geypey Web Studio",
   },
   {
     title: "Amarlux Executive Showcase",
@@ -58,6 +64,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript"],
     image: "/img/amarlux-preview.png",
     liveLink: "https://iyeregodpower-ctrl.github.io/amarlux/",
+    alt: "Amarlux Executive Showcase luxury real estate storefront by Geypey Web Studio",
   },
   {
     title: "Aura Luxury Hotel",
@@ -66,6 +73,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "UI/UX Design"],
     image: "/img/aura-preview.jpg",
     liveLink: "https://iyeregodpower-ctrl.github.io/aura-luxury-hotel/",
+    alt: "Aura Luxury Hotel premium booking experience UI by Geypey Web Studio",
   },
   {
     title: "VibePress Entertainment",
@@ -74,6 +82,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript"],
     image: "/img/vibepress-preview.png",
     liveLink: "https://iyeregodpower-ctrl.github.io/vibepress/",
+    alt: "VibePress Entertainment news platform dark light mode by Geypey Web Studio",
   },
   {
     title: "Neon Lounge",
@@ -82,6 +91,7 @@ const projects = [
     tags: ["HTML5", "CSS Grid", "JavaScript", "EmailJS"],
     image: "/img/lounge-preview.png",
     liveLink: "https://iyeregodpower-ctrl.github.io/neon-lounge/",
+    alt: "Neon Lounge luxury nightlife venue VIP reservation system by Geypey Web Studio",
   }
 ];
 
@@ -121,7 +131,7 @@ export default function PortfolioPage() {
                 <div className="w-full h-48 mb-6 overflow-hidden rounded-xl border border-zinc-800/50 relative">
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={project.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     quality={80}

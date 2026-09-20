@@ -34,10 +34,10 @@ export default function ContactPage() {
     <main className="min-h-screen bg-black text-zinc-300 px-6 py-24 max-w-4xl mx-auto flex flex-col justify-center">
       <header className="mb-12 text-center animate-fade-in-up">
         <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
-          Let's Talk
+          Let&apos;s Talk
         </h1>
         <p className="text-zinc-400 text-lg max-w-xl mx-auto">
-          Ready to bring your vision to life? I'm currently accepting new projects for Geypey Web Studio. Send me a message and let's build something extraordinary.
+          Ready to bring your vision to life? I&apos;m currently accepting new projects for Geypey Web Studio. Send me a message and let&apos;s build something extraordinary.
         </p>
       </header>
 
