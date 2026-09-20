@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Geypey Web Studio",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/img/og-image.png",
         width: 1200,
         height: 630,
         alt: "Geypey Web Studio Portfolio Showcase",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Geypey Web Studio | Growth Engineering Firm",
     description: "Premium frontend architecture and UI/UX engineering agency based in Lagos, Nigeria.",
-    images: ["/og-image.jpg"],
+    images: ["/img/og-image.png"],
     creator: "@geypey_webstudio",
   },
   alternates: {
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: "Geypey Web Studio",
     url: "https://geypeywebstudio.com.ng",
     logo: "https://geypeywebstudio.com.ng/img/logo2.png",
-    image: "https://geypeywebstudio.com.ng/og-image.png",
+    image: "https://geypeywebstudio.com.ng/img/og-image.png",
     description: "Premium frontend architecture and UI/UX engineering agency based in Lagos, Nigeria.",
     address: {
       "@type": "PostalAddress",
