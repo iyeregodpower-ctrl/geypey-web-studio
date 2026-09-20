@@ -25,12 +25,12 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="nav-glass fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/70 border-b border-zinc-900 md:backdrop-blur-md">
-      <Link href="/" className="flex items-center gap-3 group relative z-50" onClick={() => setIsOpen(false)}>
+    <nav aria-label="Main navigation" className="nav-glass fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/70 border-b border-zinc-900 md:backdrop-blur-md">
+      <Link href="/" className="flex items-center gap-3 group relative z-50" onClick={() => setIsOpen(false)} aria-label="Geypey Web Studio Home">
         <div className="relative h-12 w-12 sm:h-16 sm:w-16">
           <Image
             src="/img/logo2.png"
-            alt="Geypey Web Studio Logo"
+            alt="Geypey Web Studio logo - premium frontend architecture agency Lagos"
             width={64}
             height={64}
             sizes="64px"
@@ -44,7 +44,7 @@ export default function Navbar() {
         </span>
       </Link>
 
-      <div className="hidden md:flex gap-1 items-center text-sm">
+      <div className="hidden md:flex gap-1 items-center text-sm" role="navigation" aria-label="Primary navigation">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
           return (
@@ -56,6 +56,7 @@ export default function Navbar() {
                   ? "border-white/20 bg-white/10 text-white font-medium"
                   : "border-transparent text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40"
               }`}
+              aria-current={isActive ? "page" : undefined}
             >
               {link.name}
             </Link>
@@ -73,16 +74,17 @@ export default function Navbar() {
       <button
         className="md:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-center gap-1.5"
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle Menu"
+        aria-label="Toggle navigation menu"
         aria-expanded={isOpen}
+        aria-controls="mobile-menu"
       >
-        <span className={`block w-6 h-0.5 bg-white transition-transform duration-200 ${isOpen ? "translate-y-2 rotate-45" : ""}`} />
-        <span className={`block w-6 h-0.5 bg-white transition-opacity duration-200 ${isOpen ? "opacity-0" : ""}`} />
-        <span className={`block w-6 h-0.5 bg-white transition-transform duration-200 ${isOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+        <span className={`block w-6 h-0.5 bg-white transition-transform duration-200 ${isOpen ? "translate-y-2 rotate-45" : ""}`} aria-hidden="true" />
+        <span className={`block w-6 h-0.5 bg-white transition-opacity duration-200 ${isOpen ? "opacity-0" : ""}`} aria-hidden="true" />
+        <span className={`block w-6 h-0.5 bg-white transition-transform duration-200 ${isOpen ? "-translate-y-2 -rotate-45" : ""}`} aria-hidden="true" />
       </button>
 
       {isOpen && (
-        <div className="absolute top-0 left-0 w-full h-dvh bg-black z-40 md:hidden flex flex-col items-center justify-center gap-8 cv-auto">
+        <div id="mobile-menu" className="absolute top-0 left-0 w-full h-dvh bg-black z-40 md:hidden flex flex-col items-center justify-center gap-8 cv-auto" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -91,6 +93,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={`text-3xl font-bold ${isActive ? "text-white" : "text-zinc-400"}`}
+                aria-current={isActive ? "page" : undefined}
               >
                 {link.name}
               </Link>
