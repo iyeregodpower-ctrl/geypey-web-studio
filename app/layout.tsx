@@ -3,19 +3,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import DeferredAnalytics from "../components/DeferredAnalytics";
 import { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geist = Geist({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-geist",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-geist-mono",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geypeywebstudio.com.ng"),
@@ -116,7 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable} dark`}>
+    <html lang="en" className="dark">
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.clarity.ms" />
