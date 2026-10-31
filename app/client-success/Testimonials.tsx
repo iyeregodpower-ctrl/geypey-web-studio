@@ -1,15 +1,8 @@
-import React from 'react';
-import { Star, BadgeCheck } from 'lucide-react';
+"use client";
 
-type Review = {
-  id: string;
-  name: string;
-  initial: string;
-  date: string;
-  text: string;
-};
+import { motion } from "framer-motion";
 
-const reviews: Review[] = [
+const testimonials = [
   {
     id: '1',
     name: 'Sammi Vee',
@@ -42,49 +35,51 @@ const reviews: Review[] = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-[#090D16] py-20 px-6 md:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-32 bg-zinc-950 px-6 relative overflow-hidden">
+      
+      {/* Subtle Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-zinc-800/20 blur-[120px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
-            Trusted by modern brands.
+        <div className="mb-20 md:text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            Client Impact.
           </h2>
           <p className="text-gray-400 mt-3 text-lg">
             Verified client outcomes and engineering excellence.
           </p>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {reviews.map((review) => (
-            <div 
-              key={review.id} 
-              className="p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-white/20 transition-colors duration-300 flex flex-col justify-between"
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+              className="bg-black border border-zinc-800 rounded-3xl p-8 hover:border-zinc-600 transition-colors duration-500 flex flex-col justify-between h-full"
             >
-              <div>
-                {/* SVG Stars replacing Emojis */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-emerald-400 text-emerald-400" />
-                  ))}
-                </div>
-                <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-                  "{review.text}"
-                </p>
+              {/* Quote Icon */}
+              <div className="text-zinc-700 mb-6">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
               </div>
               
-              {/* Client Profile */}
-              <div className="mt-8 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-semibold text-lg">
-                  {review.initial}
+              <p className="text-zinc-300 text-lg leading-relaxed mb-8">
+                "{testimonial.quote}"
+              </p>
+              
+              <div>
+                <div className="text-white font-semibold tracking-wide">
+                  {testimonial.name}
                 </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <h4 className="text-white font-medium">{review.name}</h4>
-                    <BadgeCheck className="w-4 h-4 text-blue-400" />
-                  </div>
-                  <p className="text-gray-500 text-xs mt-0.5">Verified Google Review • {review.date}</p>
+                <div className="text-zinc-500 text-sm mt-1">
+                  {testimonial.title}
                 </div>
               </div>
             </div>

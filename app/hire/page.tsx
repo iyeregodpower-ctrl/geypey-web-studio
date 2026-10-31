@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 export default function HirePage() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -31,29 +30,20 @@ export default function HirePage() {
   if (status === "success") {
     return (
       <main className="min-h-screen bg-black text-zinc-300 py-32 px-6 flex items-center justify-center">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ type: "spring", stiffness: 50, damping: 20 }}
-          className="text-center bg-zinc-950 p-12 rounded-3xl border border-zinc-900 max-w-lg"
-        >
+        <div className="text-center bg-zinc-950 p-12 rounded-3xl border border-zinc-900 max-w-lg animate-fade-in-scale">
           <div className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">✓</div>
           <h2 className="text-3xl font-bold text-white mb-4">Request Received</h2>
           <p className="text-zinc-400">
             Thank you for reaching out. We will review your project details and get back to you within 24-48 hours to discuss the next steps.
           </p>
-        </motion.div>
+        </div>
       </main>
     );
   }
 
   return (
     <main className="min-h-screen bg-black text-zinc-300 py-32 px-6 max-w-3xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 50, damping: 20 }}
-      >
+      <div className="animate-fade-in-up">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Request a Project Proposal</h1>
         <p className="text-zinc-400 text-lg mb-12 max-w-2xl leading-relaxed">
           Tell us about your goals. We review every request to ensure we can deliver the high-performance results Geypey Web Studio is known for.
@@ -127,7 +117,7 @@ export default function HirePage() {
             <p className="text-red-400 text-sm text-center mt-4">Something went wrong. Please try again or email us directly.</p>
           )}
         </form>
-      </motion.div>
+      </div>
     </main>
   );
 }
