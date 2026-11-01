@@ -26,7 +26,7 @@ export default function Process() {
     <section className="cv-auto py-32 bg-black text-white px-6">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">The Engineering Pipeline.</h2>
+          <h2 className="section-heading text-4xl md:text-5xl font-bold tracking-tight mb-4">The Engineering Pipeline.</h2>
           <p className="text-zinc-400 text-lg">A strict, transparent workflow from concept to deployment.</p>
         </div>
 

@@ -30,7 +30,7 @@ export default function Success() {
     <section className="cv-auto py-32 bg-black px-6">
       <div className="max-w-5xl mx-auto">
         <div className="mb-16 md:text-center animate-fade-in-up">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="section-heading text-3xl md:text-5xl font-bold mb-4 tracking-tight">
             What Success Looks Like.
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">

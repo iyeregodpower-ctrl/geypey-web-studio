@@ -33,7 +33,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-black text-zinc-300 px-6 py-24 max-w-4xl mx-auto flex flex-col justify-center">
       <header className="mb-12 text-center animate-fade-in-up">
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+        <h1 className="section-heading text-4xl md:text-5xl font-bold tracking-tight mb-4">
           Let&apos;s Talk
         </h1>
         <p className="text-zinc-400 text-lg max-w-xl mx-auto">

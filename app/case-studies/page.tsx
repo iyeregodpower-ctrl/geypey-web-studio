@@ -19,7 +19,7 @@ export default function CaseStudies() {
   return (
     <main className="min-h-screen bg-black text-white p-6 md:p-24">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-5xl font-bold mb-12 tracking-tight animate-fade-in-up">Engineering Excellence.</h1>
+        <h1 className="section-heading text-5xl font-bold mb-12 tracking-tight animate-fade-in-up">Engineering Excellence.</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, i) => (

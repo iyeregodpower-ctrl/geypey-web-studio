@@ -30,7 +30,7 @@ export default function Services() {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-20 animate-fade-in-up">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className="section-heading text-3xl md:text-5xl font-bold tracking-tight mb-4">
             Our Expertise.
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
@@ -64,7 +64,7 @@ export function GuaranteeBadge() {
   return (
     <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-zinc-900 to-black border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
       <div>
-        <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">The Geypey Engineering Guarantee</h3>
+        <h3 className="section-heading text-2xl font-bold mb-2 tracking-tight">The Geypey Engineering Guarantee</h3>
         <p className="text-zinc-400">Every project we ship is engineered to achieve a 95+ Lighthouse Performance Score.</p>
       </div>
       <div className="text-center px-6 py-3 border border-zinc-700 rounded-lg bg-black/50">

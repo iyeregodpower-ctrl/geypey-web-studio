@@ -2,6 +2,8 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import DeferredAnalytics from "../components/DeferredAnalytics";
+import StickyWhatsApp from "../components/StickyWhatsApp";
+import CookieBanner from "../components/CookieBanner";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -102,6 +104,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     },
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Geypey Web Studio Limited",
+    legalName: "Geypey Web Studio Limited",
+    url: "https://geypeywebstudio.com.ng",
+    logo: "https://geypeywebstudio.com.ng/logo.png",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+234-705-028-0871",
+      contactType: "customer service",
+      email: "hello@geypeywebstudio.com.ng",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "52, Femi Ayinuola Street Gbetu",
+      addressLocality: "Lekki",
+      addressRegion: "Lagos State",
+      addressCountry: "NG",
+    },
+    taxID: "2622497345354",
+    founder: {
+      "@type": "Person",
+      name: "Iyere Godspower",
+    },
+  };
+
   return (
     <html lang="en" className="dark">
       <head>
@@ -113,6 +142,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');`,
+          }}
+        />
       </head>
 
       <body className="bg-black text-zinc-300 antialiased pt-20 selection:bg-zinc-800 selection:text-white font-sans">
@@ -120,6 +159,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <StickyWhatsApp />
+        <CookieBanner />
       </body>
     </html>
   );

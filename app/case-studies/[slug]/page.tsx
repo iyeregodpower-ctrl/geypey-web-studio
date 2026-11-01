@@ -25,7 +25,7 @@ export default function CaseStudyTemplate({ params }: { params: Promise<{ slug: 
   return (
     <main className="min-h-screen bg-black text-white p-12 md:p-24">
       <div className="max-w-3xl mx-auto animate-fade-in-up">
-        <h1 className="text-4xl font-bold mb-8">{content.title}</h1>
+        <h1 className="section-heading text-4xl font-bold mb-8">{content.title}</h1>
         
         <div className="space-y-8 border-l border-zinc-800 pl-8">
           <section>

@@ -30,7 +30,7 @@ export default function About() {
 
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <div className="pt-4 animate-fade-in-up">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">
+          <h2 className="section-heading text-3xl md:text-5xl font-bold tracking-tight mb-6">
             Engineered for Growth.
           </h2>
           <p className="text-zinc-400 text-lg leading-relaxed mb-6">

@@ -112,7 +112,7 @@ export default function PortfolioPage() {
       {/* Content Container - Forced to the front */}
       <div className="relative z-10 px-6 py-24 max-w-7xl mx-auto">
         <header className="mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 animate-fade-in-up">
+          <h1 className="section-heading text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-fade-in-up">
             Selected Works
           </h1>
           <p className="text-zinc-400 max-w-xl text-lg animate-fade-in-up" style={{ animationDelay: '100ms' }}>

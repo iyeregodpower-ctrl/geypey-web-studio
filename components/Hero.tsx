@@ -11,13 +11,13 @@ export default function Hero() {
       </div>
 
       <div className="z-10 text-center px-4 mt-12 md:mt-0 animate-fade-in-up">
-        <div className="mb-6 inline-block px-4 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/50 text-zinc-300 text-sm font-medium tracking-wide">
+        <div className="mb-6 inline-block px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-300 text-sm font-medium tracking-wide shadow-lg shadow-blue-500/10">
           Premium UI/UX & Frontend Architecture
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-white mb-6 drop-shadow-lg">
+        <h1 className="section-heading text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 drop-shadow-lg">
           We Engineer <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-violet-200 to-zinc-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-400">
             Digital Experiences.
           </span>
         </h1>

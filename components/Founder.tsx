@@ -19,9 +19,9 @@ export default function Founder() {
         </div>
 
         <div className="w-full md:w-2/3">
-          <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">Crafting Bright Experiences.</h2>
+          <h2 className="section-heading text-3xl font-bold mb-6 tracking-tight">Crafting Bright Experiences.</h2>
           <p className="text-zinc-400 text-lg leading-relaxed">
-            I am Iyere Gods power, the founder of Geypey Web Studio. We combine technical precision in Next.js with a sharp eye for UI/UX to ensure your project is not just code, but a digital experience that converts.
+            We are Geypey Web Studio, led by founder Iyere Godspower. We combine technical precision in Next.js with a sharp eye for UI/UX to ensure your project is not just code, but a digital experience that converts.
           </p>
         </div>
       </div>

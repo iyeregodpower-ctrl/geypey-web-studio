@@ -1,50 +1,54 @@
 import Link from "next/link";
+import { Mail, Phone, MapPin } from "lucide-react";
+import CACBadge from "./CACBadge";
 
 export default function Footer() {
   return (
-    <footer role="contentinfo" className="py-12 border-t border-zinc-900 bg-black mt-20">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex flex-col items-center md:items-start gap-3">
-          <Link href="/" className="text-xl font-bold text-white tracking-tighter hover:opacity-80 transition-opacity" aria-label="Geypey Web Studio Home">
-            GEYPEY <span className="text-zinc-500">STUDIO</span>
-          </Link>
+    <footer className="bg-[#090D16] border-t border-white/10 pt-16 pb-8 px-6 md:px-12 lg:px-24">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4 text-zinc-500 text-sm">
-            <p>&copy; {new Date().getFullYear()} Geypey Web Studio. All rights reserved.</p>
-            <span className="hidden md:inline text-zinc-700" aria-hidden="true">|</span>
-            <nav aria-label="Legal links">
-              <div className="flex gap-4">
-                <Link href="/privacy" className="hover:text-zinc-300 transition-colors">Privacy Policy</Link>
-                <Link href="/terms" className="hover:text-zinc-300 transition-colors">Terms & Conditions</Link>
-              </div>
-            </nav>
-          </div>
+        {/* Brand & Legal Info */}
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-white">Geypey Web Studio Limited</h3>
+          <CACBadge />
+          <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+            A premium UI/UX and front-end architecture agency delivering secure, technology-driven digital platforms.
+          </p>
         </div>
 
-        <nav aria-label="Social links">
-          <ul className="flex flex-wrap justify-center gap-8 text-sm font-medium list-none">
+        {/* Contact Information */}
+        <div className="space-y-4">
+          <h4 className="text-white font-semibold">Contact Us</h4>
+          <ul className="space-y-3 text-sm text-gray-400">
             <li>
-              <a href="https://www.linkedin.com/in/iyere-godspower-76b092227" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors" aria-label="LinkedIn profile">
-                LinkedIn
+              <a href="mailto:hello@geypeywebstudio.com.ng" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                <Mail className="w-4 h-4" /> hello@geypeywebstudio.com.ng
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/geypey_webstudio" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors" aria-label="Instagram profile">
-                Instagram
+              <a href="https://wa.me/2347050280871" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                <Phone className="w-4 h-4" /> +234 705 028 0871 (WhatsApp)
               </a>
             </li>
-            <li>
-              <a href="https://tiktok.com/@geypey_web" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors" aria-label="TikTok profile">
-                TikTok
-              </a>
-            </li>
-            <li>
-              <a href="mailto:hello@geypeywebstudio.com.ng" className="text-zinc-400 hover:text-white transition-colors" aria-label="Email Geypey Web Studio">
-                Email
-              </a>
+            <li className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+              <span>52, Femi Ayinuola Street Gbetu,<br/>Lekki, Lagos State, Nigeria</span>
             </li>
           </ul>
-        </nav>
+        </div>
+
+        {/* Legal Links */}
+        <div className="space-y-4">
+          <h4 className="text-white font-semibold">Legal</h4>
+          <ul className="space-y-3 text-sm text-gray-400">
+            <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+            <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 text-center md:text-left text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center">
+        <p>© {new Date().getFullYear()} Geypey Web Studio Limited. All rights reserved.</p>
       </div>
     </footer>
   );

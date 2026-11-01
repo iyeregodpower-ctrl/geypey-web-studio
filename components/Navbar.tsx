@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 
 const navLinks = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { name: "Work", href: "/portfolio" },
   { name: "Client success", href: "/#testimonials" },
   { name: "Case Studies", href: "/case-studies" },
@@ -62,6 +63,15 @@ export default function Navbar() {
             </Link>
           );
         })}
+
+        
+
+        <Link
+          href="/client-portal"
+          className="ml-2 border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/10 transition-colors"
+        >
+          Client Portal
+        </Link>
 
         <Link
           href="/hire"

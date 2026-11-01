@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '*.github.io',
+        hostname: 'images.unsplash.com',
       },
     ],
   },

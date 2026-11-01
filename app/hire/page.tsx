@@ -32,7 +32,7 @@ export default function HirePage() {
       <main className="min-h-screen bg-black text-zinc-300 py-32 px-6 flex items-center justify-center">
         <div className="text-center bg-zinc-950 p-12 rounded-3xl border border-zinc-900 max-w-lg animate-fade-in-scale">
           <div className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">✓</div>
-          <h2 className="text-3xl font-bold text-white mb-4">Request Received</h2>
+          <h2 className="section-heading text-3xl font-bold mb-4">Request Received</h2>
           <p className="text-zinc-400">
             Thank you for reaching out. We will review your project details and get back to you within 24-48 hours to discuss the next steps.
           </p>
@@ -44,7 +44,7 @@ export default function HirePage() {
   return (
     <main className="min-h-screen bg-black text-zinc-300 py-32 px-6 max-w-3xl mx-auto">
       <div className="animate-fade-in-up">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Request a Project Proposal</h1>
+        <h1 className="section-heading text-4xl md:text-5xl font-bold mb-6 tracking-tight">Request a Project Proposal</h1>
         <p className="text-zinc-400 text-lg mb-12 max-w-2xl leading-relaxed">
           Tell us about your goals. We review every request to ensure we can deliver the high-performance results Geypey Web Studio is known for.
         </p>
