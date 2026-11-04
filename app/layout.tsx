@@ -98,7 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+234-XXX-XXX-XXXX",
+      telephone: "+234-705-028-0871",
       contactType: "customer service",
       availableLanguage: "English",
     },
@@ -124,7 +124,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       addressRegion: "Lagos State",
       addressCountry: "NG",
     },
-    taxID: "2622497345354",
+    
     founder: {
       "@type": "Person",
       name: "Iyere Godspower",
